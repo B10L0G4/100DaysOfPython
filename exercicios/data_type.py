@@ -1,3 +1,5 @@
+# 'Day 2'
+
 # escrever um programa que adicione os dígitos em um número e some todos os dígitos
 
 digito = input("Digite um número: ")
