@@ -1,3 +1,4 @@
+# 'Day 2'
 # calculadora de massa corporal
 
 altura = float(input('Digite sua altura: '))
