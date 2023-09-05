@@ -7,8 +7,8 @@ name1 = name1 + name2
 love1 = name1.count('l'),name1.count('o'),name1.count('v'),name1.count('e')
 true1 = name1.count('t'),name1.count('r'),name1.count('u'),name1.count('e')
 
-l = sum(int(i)for i in love1)
-t = sum(int(i)for i in true1)
+l = sum(i for i in love1)
+t = sum(i for i in true1)
 #
 love =str(t) + str(l)
 love = int(love)
