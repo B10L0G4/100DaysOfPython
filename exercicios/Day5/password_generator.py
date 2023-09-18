@@ -10,20 +10,27 @@ nr_numbers = int(input(f"How many numbers would you like?\n"))
 
 
 lt = ''
-for letter in range(0, len(letters)):
+letter_len = len(letters)
+for letter in range(0, letter_len):
+    r_letter = random.randint(0,letter_len)
     if nr_letters > letter:
-        letter = letters[letter]
+        letter = letters[r_letter]
         lt = lt +letter
+
 nn = ''
-for num in range(0, len(numbers)):
+num_len = len(numbers)
+for num in range(0, num_len):
+    num_len = random.randint(0 ,num_len)
     if nr_numbers> num:
-        num = numbers[num]
+        num = numbers[num_len]
         nn = nn + num
 
 sy = ''
-for sym in range(0, len(symbols)):
+sym_len = len(symbols)
+for sym in range(0, sym_len):
+    sym_len = random.randint(0 , sym_len)
     if nr_symbols > sym:
-        sym = symbols[sym]
+        sym = symbols[sym_len]
         sy = sy + sym
 
 print(f'letras {lt} , numeros {nn}, simbolos {sy}')
