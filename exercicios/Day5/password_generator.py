@@ -14,30 +14,32 @@ for letter in range(0, letter_len):
     r_letter = random.randint(0,letter_len)
     if nr_letters > letter:
         letter = letters[r_letter]
-        lt = lt +letter
+        lt = letter
 
-nn = ''
-num_len = len(numbers)
-for num in range(0, num_len):
-    num_len = random.randint(0 ,num_len)
-    if nr_numbers> num:
-        num = numbers[num_len]
-        nn = nn + num
+print(lt)
+#
+# nn = ''
+# num_len = len(numbers)
+# for num in range(0, num_len):
+#     num_len = random.randint(0 ,num_len)
+#     if nr_numbers> num:
+#         num = numbers[num_len]
+#         nn = nn + num
+#
+# sy = ''
+# sym_len = len(symbols)
+# for sym in range(0, sym_len):
+#     sym_len = random.randint(0 , sym_len)
+#     if nr_symbols > sym:
+#         sym = symbols[sym_len]
+#         sy = sy + sym
+#
+# all_caracters = list(lt + nn + sy)
+# random.shuffle(all_caracters)
+#
+# all = "".join(map(str, all_caracters))
 
-sy = ''
-sym_len = len(symbols)
-for sym in range(0, sym_len):
-    sym_len = random.randint(0 , sym_len)
-    if nr_symbols > sym:
-        sym = symbols[sym_len]
-        sy = sy + sym
-
-all_caracters = list(lt + nn + sy)
-random.shuffle(all_caracters)
-
-all = "".join(map(str, all_caracters))
-
-print(f'Your password is : {all}')
+# print(f'Your password is : {all}')
 
 #Eazy Level - Order not randomised:
 #e.g. 4 letter, 2 symbol, 2 number = JduE&!91

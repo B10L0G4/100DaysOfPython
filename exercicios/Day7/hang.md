@@ -1,0 +1,7 @@
+- welcome - print
+- input para inserção de letra
+- lista de palavras -como formar as palavras
+- montagem de caracter de vuda 
+- inserção de erros - vidas perdidas 
+- numero de chances 
+- 
