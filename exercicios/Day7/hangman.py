@@ -11,34 +11,42 @@
 import random
 
 list_word =['barraca','barriga','burro','cachorro','carro','churrasco','corrida','corrupto','errado','erro','ferrado','ferradura','ferro',
-              'garra','garrafa','gorro','horrível','irritado','jarra','serra','serrote','sorriso','terremoto','torre.bateria','cadeira',
-              'camarão','coleira','coroa','faqueiro','feira','geladeira','gorila','jacaré','lírio','madeira','muro','pera','periquito',
-              'picareta','pirata','pirueta','tabuleiro','tubarão','zero','armário','árvore','barba','barbatana','barco','borboleta','calor',
+              'garra','garrafa','gorro','horrivel','irritado','jarra','serra','serrote','sorriso','terremoto','torre','bateria','cadeira',
+              'camarao','coleira','coroa','faqueiro','feira','geladeira','gorila','jacare','lirio','madeira','muro','pera','periquito',
+              'picareta','pirata','pirueta','tabuleiro','tubarao','zero','armario','arvore','barba','barbatana','barco','borboleta','calor',
               'carteira','cartola','catorze','cobertor','colar','corda','formiga','garfo','guardanapo','harpa','margarida','martelo','partir',
-              'porta','ralador','revólver','sorvete','tartaruga','torneira','torta','urso','verdade','verde',]
+              'porta','ralador','revolver','sorvete','tartaruga','torneira','torta','urso','verdade','verde',]
 chosen_word = random.choice(list_word).lower()
 print(chosen_word)
 display = []
-guess = input('Escolha uma letra de A a Z: ').lower()
 
-for numb_words in range (0,len(chosen_word)):
-    word = chosen_word[numb_words]
-    display.append(chosen_word)
-    display[numb_words] = "_"
-
-    if word == guess:
-        display[numb_words] = guess
-
-    else:
-        display[numb_words]
-print('display', display)
+#simple solution
+for letter in chosen_word:
+    display += '_'
+print(display) #word: apple output: ['_','_','_','_','_']
 
 
+word_r = list(chosen_word)
+while display != word_r:
+    guess = input('Escolha uma letra de A a Z: ').lower()
+
+    for numb_words in range(0, len(chosen_word)):
+        word = chosen_word[numb_words]
+
+        if word == guess:
+            display[numb_words] = word
+
+    print('display', display)
+print('You win')
 
 
 
 
-
+# for numb_words in range (0,len(chosen_word)):
+#     word = chosen_word[numb_words]
+#     display.append(chosen_word)
+#     display[numb_words] = "_"
+#print(display)
 
 
 
