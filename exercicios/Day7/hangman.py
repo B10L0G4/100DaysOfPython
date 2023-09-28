@@ -8,6 +8,11 @@
 #e.g. If the user guessed "p" and the chosen word was "apple", then display should be ["_", "p", "p", "_", "_"]. ok
 #TODO - Step 6 - Print 'display' and you should see the guessed letter in the correct position and every other letter replace with "_".
 #Hint - Don't worry about getting the user to guess the next letter. We'll tackle that in step 3. ok
+#TODO - step 7 -  Create a variable called 'lives' to keep track of the number of lives left.
+#Set 'lives' to equal 6.
+#TODO - step 8: - If guess is not a letter in the chosen_word,
+    #Then reduce 'lives' by 1.
+    #If lives goes down to 0 then the game should stop and it should print "You lose."
 import random
 
 list_word =['barraca','barriga','burro','cachorro','carro','churrasco','corrida','corrupto','errado','erro','ferrado','ferradura','ferro',
@@ -19,6 +24,66 @@ list_word =['barraca','barriga','burro','cachorro','carro','churrasco','corrida'
 chosen_word = random.choice(list_word).lower()
 print(chosen_word)
 display = []
+lives = 0
+live = 0
+loses = ''
+stages = ['''
+      +---+
+      |   |
+      O   |
+     /|\  |
+     / \  |
+          |
+    =========
+    ''', '''
+      +---+
+      |   |
+      O   |
+     /|\  |
+     /    |
+          |
+    =========
+    ''', '''
+      +---+
+      |   |
+      O   |
+     /|\  |
+          |
+          |
+    =========
+    ''', '''
+      +---+
+      |   |
+      O   |
+     /|   |
+          |
+          |
+    =========''', '''
+      +---+
+      |   |
+      O   |
+      |   |
+          |
+          |
+    =========
+    ''', '''
+      +---+
+      |   |
+      O   |
+          |
+          |
+          |
+    =========
+    ''', '''
+      +---+
+      |   |
+          |
+          |
+          |
+          |
+    =========
+    ''']
+
 
 #simple solution
 for letter in chosen_word:
@@ -26,8 +91,10 @@ for letter in chosen_word:
 print(display) #word: apple output: ['_','_','_','_','_']
 
 
-word_r = list(chosen_word)
-while display != word_r:
+#word_win = list(chosen_word) resposta while display != word_win
+win = False
+
+while not win:
     guess = input('Escolha uma letra de A a Z: ').lower()
 
     for numb_words in range(0, len(chosen_word)):
@@ -35,9 +102,21 @@ while display != word_r:
 
         if word == guess:
             display[numb_words] = word
+        else:
+            lives[numb_words] = live
+    print(live)
+    if '_' not in display:
+        win = True
+        print('You win')
+
+
+
+
 
     print('display', display)
-print('You win')
+
+
+
 
 
 
@@ -47,6 +126,8 @@ print('You win')
 #     display.append(chosen_word)
 #     display[numb_words] = "_"
 #print(display)
+
+
 
 
 
