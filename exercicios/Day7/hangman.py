@@ -14,106 +14,60 @@
     #Then reduce 'lives' by 1.
     #If lives goes down to 0 then the game should stop and it should print "You lose."
 import random
+import livesASCII
+import list_words
 
-list_word =['barraca','barriga','burro','cachorro','carro','churrasco','corrida','corrupto','errado','erro','ferrado','ferradura','ferro',
-              'garra','garrafa','gorro','horrivel','irritado','jarra','serra','serrote','sorriso','terremoto','torre','bateria','cadeira',
-              'camarao','coleira','coroa','faqueiro','feira','geladeira','gorila','jacare','lirio','madeira','muro','pera','periquito',
-              'picareta','pirata','pirueta','tabuleiro','tubarao','zero','armario','arvore','barba','barbatana','barco','borboleta','calor',
-              'carteira','cartola','catorze','cobertor','colar','corda','formiga','garfo','guardanapo','harpa','margarida','martelo','partir',
-              'porta','ralador','revolver','sorvete','tartaruga','torneira','torta','urso','verdade','verde',]
+list_word = list_words.list_word()
+stages = livesASCII.stage()
+logo = livesASCII.logo()
 chosen_word = random.choice(list_word).lower()
-print(chosen_word)
 display = []
-lives = 0
-live = 0
-loses = ''
-stages = ['''
-      +---+
-      |   |
-      O   |
-     /|\  |
-     / \  |
-          |
-    =========
-    ''', '''
-      +---+
-      |   |
-      O   |
-     /|\  |
-     /    |
-          |
-    =========
-    ''', '''
-      +---+
-      |   |
-      O   |
-     /|\  |
-          |
-          |
-    =========
-    ''', '''
-      +---+
-      |   |
-      O   |
-     /|   |
-          |
-          |
-    =========''', '''
-      +---+
-      |   |
-      O   |
-      |   |
-          |
-          |
-    =========
-    ''', '''
-      +---+
-      |   |
-      O   |
-          |
-          |
-          |
-    =========
-    ''', '''
-      +---+
-      |   |
-          |
-          |
-          |
-          |
-    =========
-    ''']
+chosen_error_words = ''
+win = False
+letter = False
+live = 6
 
+print(logo)
 
-#simple solution
 for letter in chosen_word:
     display += '_'
-print(display) #word: apple output: ['_','_','_','_','_']
 
-
-#word_win = list(chosen_word) resposta while display != word_win
-win = False
 
 while not win:
+    print(" ".join(display))
     guess = input('Escolha uma letra de A a Z: ').lower()
+    chosen_error_words = chosen_error_words + guess.upper()
+    print(chosen_error_words)
+    if guess in display:
+        letter = True
+        print('letter repeated')
 
+    print('acert',live)
     for numb_words in range(0, len(chosen_word)):
         word = chosen_word[numb_words]
 
+
         if word == guess:
             display[numb_words] = word
-        else:
-            lives[numb_words] = live
-    print(live)
+
+    if guess not in chosen_word:
+        live -= 1
+        print(f'You chose {guess.upper()}, this letter not in this word\n You lost 1 life')
+
+
+    if live == 0:
+        win = True
+        print('You Lose')
+        print('You try write',chosen_error_words)
+
     if '_' not in display:
         win = True
         print('You win')
 
+    print(stages[live])
 
 
 
-
-    print('display', display)
 
 
 
