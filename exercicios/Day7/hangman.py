@@ -37,15 +37,14 @@ while not win:
         live -= 1
         print(f'You chose {guess.upper()},this letter not in this word\nYou lost 1 life')
 
-
     if live == 0:
         win = True
+        print('You try write', chosen_error_words)
         print('You Lose')
-        print('You try write',chosen_error_words)
-        print(" ".join(display))
 
     if '_' not in display:
         win = True
+        print(" ".join(display))
         print('You win')
 
     print(stages[live])
