@@ -7,7 +7,7 @@ for n in range(0, len(student_heights)):
   student_heights[n] = int(student_heights[n])
   total = total + student_heights[n]
 
-  print(total)
+print(total)
 
 media = round(total / (n +1))
 print(media)

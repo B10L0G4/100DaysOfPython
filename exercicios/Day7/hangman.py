@@ -2,6 +2,7 @@
 import random
 import livesASCII
 import list_words
+from replit import clear
 
 list_word = list_words.list_word()
 stages = livesASCII.stage()
@@ -21,6 +22,7 @@ for letter in chosen_word:
 while not win:
     print(" ".join(display))
     guess = input('Escolha uma letra de A a Z: ').lower()
+    clear()
     chosen_error_words = chosen_error_words + guess.upper()
 
     if guess in display:
@@ -39,6 +41,7 @@ while not win:
 
     if live == 0:
         win = True
+        print('The word was: ',chosen_word)
         print('You try write', chosen_error_words)
         print('You Lose')
 
