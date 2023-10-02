@@ -10,6 +10,8 @@ def prime_number(num):
   else:
     print(num, "é primo")
 
+
+
 number = int(input("Digite um numero "))
 prime_number(num = number)
 
