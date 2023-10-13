@@ -1,4 +1,4 @@
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
@@ -7,37 +7,55 @@ shift = int(input("Type the shift number:\n"))
 # #TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
 #
 #
-
-def encrypt(text_func,shift_func):
-    # text_func = text_func.replace(" ", "")
-    cipher = ''
-    for letter in text_func.strip(' '):
-        position = alphabet.index(letter)
-        shift_position = position + shift_func
-        if shift_position > 25:
-            alphabet.sort(reverse=True)
-            position = len(alphabet)-1
-            shift_position = position - shift_func
-        new = alphabet[shift_position]
-        cipher += new
-        alphabet.sort(reverse=False)
-    print(f'The encoded text is {cipher}')
-
-
-def decrypt(text_func,shift_func):
-    decipher = ''
+def ceaser(direction_func,text_func,shift_func):
+    end = ''
     for letter in text_func:
+        if shift_func < 0:
+            shift_func = shift_func * -1
         position = alphabet.index(letter)
-        shift_position = position - shift_func
+        if direction_func == 'decode':
+            shift_func = shift_func * -1
+            shift_position = position + shift_func
+        else:
+            shift_position = position + shift_func
         new = alphabet[shift_position]
-        decipher += new
-    print(f'The encoded text is {decipher}')
+        end += new
+
+    print(f'The {direction_func}d text is {end}')
 
 
-if direction == 'encode':
-    encrypt(text_func=text,shift_func=shift)
-elif direction == 'decode':
-    decrypt(text_func=text, shift_func=shift)
+ceaser(direction_func = direction,text_func = text,shift_func=shift)
+
+# def encrypt(text_func,shift_func):
+#     # text_func = text_func.replace(" ", "")
+#     cipher = ''
+#     for letter in text_func.strip(' '):
+#         position = alphabet.index(letter)
+#         shift_position = position + shift_func
+#         if shift_position > 25:
+#             alphabet.sort(reverse=True)
+#             position = len(alphabet)-1
+#             shift_position = position - shift_func
+#         new = alphabet[shift_position]
+#         cipher += new
+#         alphabet.sort(reverse=False)
+#     print(f'The encoded text is {cipher}')
+#
+#
+# def decrypt(text_func,shift_func):
+#     decipher = ''
+#     for letter in text_func:
+#         position = alphabet.index(letter)
+#         shift_position = position - shift_func
+#         new = alphabet[shift_position]
+#         decipher += new
+#     print(f'The encoded text is {decipher}')
+#
+#
+# if direction == 'encode':
+#     encrypt(text_func=text,shift_func=shift)
+# elif direction == 'decode':
+#     decrypt(text_func=text, shift_func=shift)
 
 
     #TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.
