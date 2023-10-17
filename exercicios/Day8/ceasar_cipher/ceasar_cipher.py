@@ -1,8 +1,6 @@
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
+
 
 # #TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
 #
@@ -10,21 +8,35 @@ shift = int(input("Type the shift number:\n"))
 def ceaser(direction_func,text_func,shift_func):
     end = ''
     for letter in text_func:
-        if shift_func < 0:
-            shift_func = shift_func * -1
-        position = alphabet.index(letter)
-        if direction_func == 'decode':
-            shift_func = shift_func * -1
-            shift_position = position + shift_func
+        if letter in alphabet:
+            if shift_func < 0:
+                shift_func = shift_func * -1
+            position = alphabet.index(letter)
+            if direction_func == 'decode':
+                shift_func = shift_func * -1
+                shift_position = position + shift_func
+            else:
+                shift_position = position + shift_func
+            new = alphabet[shift_position]
+            end += new
         else:
-            shift_position = position + shift_func
-        new = alphabet[shift_position]
-        end += new
+            end += letter
 
     print(f'The {direction_func}d text is {end}')
 
+run = False
+while not run:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+    shift = shift % 26
 
-ceaser(direction_func = direction,text_func = text,shift_func=shift)
+    ceaser(direction_func = direction,text_func = text,shift_func=shift)
+
+    restart = input("Quer continuar  ? \n ")
+    if restart == 'no':
+        run = True
+        print('See ya ')
 
 # def encrypt(text_func,shift_func):
 #     # text_func = text_func.replace(" ", "")
