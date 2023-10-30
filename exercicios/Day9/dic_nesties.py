@@ -17,18 +17,18 @@ def add_nova_viagem(cidade1, visitas, lista_de_cidades):
     nova_viagem['cidades_visitadas']= lista_de_cidades
 
 
-    # try:
-    #     with open('reg_de_viagem.json', 'r') as f:
-    #         reg_de_viagem = json.load(f)
-    # except FileNotFoundError:
-    #     reg_de_viagem = []
+    try:
+        with open('reg_de_viagem.json', 'r') as f:
+            reg_de_viagem = json.load(f)
+    except FileNotFoundError:
+        reg_de_viagem = []
 
     reg_de_viagem.append(nova_viagem)
 
-    # with open('reg_de_viagem.json', 'w') as f:
-    #     json.dump(reg_de_viagem, f, indent=4)
-    #
-    # return reg_de_viagem
+    with open('reg_de_viagem.json', 'w') as f:
+        json.dump(reg_de_viagem, f, indent=4)
+
+    return reg_de_viagem
 
 
 add_nova_viagem(cidade1, visitas, lista_de_cidades)
