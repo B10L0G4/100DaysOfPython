@@ -33,7 +33,7 @@ def maior_valor():
         with open('reg_de_lances.json', 'r') as f:
             reg_de_lances = json.load(f)
 
-        valores = [valor['lance'] for valor in reg_de_lances]
+        valores = [lance['lance'] for lance in reg_de_lances]
         return valores
     except FileNotFoundError:
         reg_de_lances = []

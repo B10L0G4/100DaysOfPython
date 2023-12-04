@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "nome": "van",
+        "lance": 5.0
+    },
+    {
+        "nome": "dante",
+        "lance": 10.0
+    }
+]
