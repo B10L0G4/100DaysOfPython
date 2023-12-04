@@ -31,37 +31,26 @@ def days_in_month(year, mounth):
         mon = mon + a
     mes=months[mounth -1]
         
-    for m in month_day:
-        continue
-        
-    par = month_day[1]
-    impar= month_day[0]
-    fev_par = month_day[2]
-    fev_impar = month_day[3]
-
     if count_years(year) == True:
         if odd_even(mounth) == True:
             if mounth == 2:
-                print(f'O mês de {mes} tem {fev_par} dias e o ano de {year} é bissexto')
+                print(f'O mês de {mes} tem {month_day[2]} dias e o ano de {year} é bissexto')
             else:
-                print(f'O mês {mes} tem {par} dias e o ano de {year} é bissexto')
+                print(f'O mês {mes} tem {month_day[1]} dias e o ano de {year} é bissexto')
         else:
-            print(f'O mês {mes} tem {impar} dias e o ano de {year} é bissexto')
+            print(f'O mês {mes} tem {month_day[0]} dias e o ano de {year} é bissexto')
     else:
         if odd_even(mounth) == True:
             if mounth == 2:
-                print(f'O mês de {mes} tem {fev_impar} e o ano de {year} não é bissexto')
+                print(f'O mês de {mes} tem {month_day[3]} e o ano de {year} não é bissexto')
             else:
-                print(f'O mês {mes} tem {par} dias e o ano de {year} não é bissexto')
+                print(f'O mês {mes} tem {month_day[1]} dias e o ano de {year} não é bissexto')
             
         else:
-            print(f'O mês {mes} tem {impar} e o ano de {year} não é bissexto')
+            print(f'O mês {mes} tem {month_day[0]} e o ano de {year} não é bissexto')
 
-       
-        
-
-year = int(input('Which year you want to check? '))
-mounth = int(input('Which mounth you want to check'))
+year = int(input('Which year you want to check?\n'))
+mounth = int(input('Which mounth you want to check?\n'))
 
 days_in_month(year, mounth)
 

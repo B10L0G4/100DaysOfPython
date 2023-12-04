@@ -1,5 +1,5 @@
 
-year = int(input('Which year you want to check? '))
+year = int(input('Which year you want to check?\n '))
 
 four = year % 4
 hundred = year % 100
@@ -15,3 +15,5 @@ if four == 0:
             four_hundred =- 1
 else:
     print(f'The year {year} is Not Leap')
+    
+    
