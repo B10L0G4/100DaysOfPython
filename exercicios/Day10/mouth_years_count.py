@@ -9,14 +9,28 @@ def count_years(year):
     if four == 0:
         while hundred >= 0:
             while four_hundred >= 0:
-                print(f'The year {year} is Leap')
-                hundred = - 1
-                four_hundred = - 1
+                return True
     else:
-        return(f'The year {year} is Not Leap')
+        return False
 
+def odd_even(month):
+    month = month % 2
+
+if month == 0:
+    par = True
+    return par
+else:
+    impar = False
+    return impar
+
+def days_in_month(year, month):
+    month_day = [31,30,29,28]
+    months= [Jan, Fev, Mar, Abril, Maio, Jun, Jul, Ago, Set, Out, Nov, Dez]
+
+    for m in month_day:
+        print(m)
+        print(month_day)
 
 year = int(input('Which year you want to check? '))
-# mounth = int(input('Which mounth you want to check'))
-
+mounth = int(input('Which mounth you want to check'))
 count_years(year)
